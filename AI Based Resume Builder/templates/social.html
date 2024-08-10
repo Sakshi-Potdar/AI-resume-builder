@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='pages.css') }}"/>
+
+    <script>
+        const data = document.getElementById("linkedinField").value;
+
+        document.getElementById("submitButton").addEventListener("click", function () {
+            localStorage.setItem("linked", data);
+        });
+    </script>
+    
+    <title>Social Media Details</title>
+    <script src="{{ url_for('static', filename='save.js') }}"></script>
+</head>
+<body>
+    
+    <form id="saveform" action="{{ url_for('technical') }}"  onsubmit=" return validateForm()">
+    <div class="container" >
+        <h1 class="text-center my-2"> <b>Social Media Details</b></h1>
+        
+        <div class="form-group mt-2">
+            <label for="githubField">Github </label>
+            <input type="text" id="githubField" placeholder="Enter here" class="form-control" required 
+            />
+        </div>
+       
+        <div class="form-group mt-2">
+            <label for="linkedinField"> Linkedin </label>
+            <input type="text" id="linkedinField" placeholder="Enter here" class="form-control" required 
+            />
+            
+        </div> 
+        
+
+        <div class="row"> 
+            <div class="col-md-6 mt-2">
+                <div class="form-group mt-2">
+                    <label for="pltform">Any Other Platform Name  </label>
+                    <input type="text" id="pltform" placeholder="Enter here" class="form-control"
+                    />
+                    
+                </div> 
+
+            </div>
+
+            
+                <div class="col-md-6 mt-2">
+                    <div class="form-group mt-2">
+                        <label for="percentField"> Link </label>
+                        <input type="text" id="percentField" placeholder="Enter here" class="form-control"
+                        />
+                   </div>
+                </div>
+            </div>
+            <div class="center-button">
+                <input type="button" name="goBackButton" id="goBackButton" value="Previous"  class="btn-center" onclick="goback()">
+                <button  class="btn-center" type="submit" id="submitButton" name="submitButton">Next</button>
+            </div>
+    </div>
+    </form>
+</body>
+</html>

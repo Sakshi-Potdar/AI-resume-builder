@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="pages.css"/>
+    
+    <title>Resume Generator 3</title>
+    <script type="text/javascript">
+		// Get a reference to the button and container div
+
+		// Function to create a new div
+		function createNewDiv() {
+			const container = document.getElementById("container");
+		    const newDiv = document.createElement("div");
+		    newDiv.className = "rounded-box";
+		    newDiv.textContent = "Click me!";
+
+		    // Add a click event to the new div
+		    newDiv.addEventListener("click", function() {
+		        alert('Successfully Added!');
+		    });
+
+		    container.appendChild(newDiv);
+		}
+
+	</script>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="text-center my-2"> <b>Experience Details</b> </h1>
+        
+        <div class="form-group mt-2">
+            <label for="expsField">Experience in:</label>
+             <select id="state" name="state">
+             <option value="">Select a State</option>
+             <option value="State1">Work</option>
+             <option value="State2">Internship</option>
+             
+             </select>
+     </div>  
+     <div class="row">
+        <div class="col-md-6">
+            <!--column 1-->
+
+            <h3><b>Work</b></h3>
+            <div id="container" name="container" >
+            <div class="form-group mt-2">
+                <label for="nameField">Company Name </label>
+                <input type="text" id="nameField" placeholder="Enter here" class="form-control"
+                /> 
+            </div> 
+
+            <div class="form-group mt-2">
+                <label for="nameField"> Designation </label>
+                <input type="text" id="nameField" placeholder="Enter here" class="form-control"
+                />
+
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="nameField"> Job Descripton </label>
+                <input type="text" id="nameField" placeholder="Enter here" class="form-control"
+                />
+
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="sdateField">Start Date</label>
+                <input type="date" id="std" name="std" class="form-control"/>
+                
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="edateField"> End Date</label>
+                    <input type="date" id="edb" name="edb" class="form-control"/>
+                    
+                    </div>
+
+                    <div class="center-button">
+                        <input type="button" name="regenerate" class="btn-center" id="regenerate" value="Add Work" onclick="createNewDiv()">
+                       
+                    </div>
+
+      </div>
+        </div>
+
+        <div class="col-md-6">
+            <!--column 2-->
+
+            <h3><b> Internship</b></h3>
+
+            <div class="form-group mt-2">
+                <label for="nameField"> Organization </label>
+                <input type="text" id="nameField" placeholder="Enter here" class="form-control"
+                />
+
+            </div>
+            
+            <div class="form-group mt-2">
+                <label for="nameField"> Field </label>
+                <input type="text" id="nameField" placeholder="Enter here" class="form-control"
+                />
+                
+            </div>
+
+            
+
+            <div class="form-group mt-2">
+                <label for="periodField">Duration(In Months)</label>
+                 <select id="period" name="period">
+                 <option value="">Select a Period</option>
+                 <option value="State1">0-3</option>
+                 <option value="State2">3-6</option>
+                 <option value="State2">6-9</option>
+                 <option value="State2">9-12</option>
+                 <option value="State2">12-15</option>
+                 <option value="State2">15-18</option>
+
+                 </select>
+                 
+         </div> 
+
+
+            <div class="form-group mt-2">
+                <label for="nameField"> Description </label>
+                <input type="text" id="nameField" placeholder="Enter here" class="form-control"
+                />
+                
+                <div class="center-button">
+                    <a href="experiance.html" class="btn-center">Add Another Internship</a>
+                </div>
+            
+            </div>
+
+          
+           
+
+        </div>
+
+     </div>
+    
+
+     <div class="center-button">
+        <a href="education.html" class="btn-center">Previous</a>
+        <a href="project.html" class="btn-center">Next</a>
+    </div>
+
+    </div>
+    
+</body>
+</html>

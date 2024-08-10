@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Signup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='signin.css') }}">
+    <style>
+        .input-container {
+            margin: 10px;
+            width:300px;
+            text-align: right;
+
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"]{
+            width:100%;
+            padding: 10px;
+            font-size: 16px;
+            border:1px solid black;
+            border-radius: 5px;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+           
+        }
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <section class="main" >
+
+        <header>
+          <a href="#"><img src="{{ url_for('static', filename='resume-logo-1.png') }}" class="logo"></a>
+          <div class="toggle"></div>
+          <ul class="navigation">
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Templates</a></li>
+            <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+            <li><a href="{{ url_for('signin') }}">Log In</a></li>
+            </ul>
+        </header>
+        <section class="signUp">
+            <div class="head">
+            <a href="#"><img src="{{ url_for('static', filename='73-730394_admin-approved-user-registration-user-registration-icon-png.png') }}" class="logo"></a>
+            <h1>Log in to your account</h1>
+            <br>
+            </div>
+            <div class="form-container">
+                <form id="loginForm" action="{{ url_for('signin') }}" method="post">
+                   <div class="input-container">
+                        <input type="email" id="email" name="email" placeholder="Enter Email" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                    <div class="input-container">
+                        <input type="password" id="password" name="password" placeholder="Enter Password" required>
+                        <span class="error-message" id="passwordError"></span>
+                    </div>
+                   
+            </div>
+            <br>
+            <div class="cen">
+                <button class="btn" type="submit">Log In</button>
+            </div>
+            <h3>Don't Have An Account?<a href="{{ url_for('signup') }}">Sign Up</a></h3><br>
+            {% if mesage is defined and mesage %}
+			<div style="color: red;">{{ mesage }}</div>
+		    {% endif %}
+            </form>
+        </section>
+
+         <script>
+        function validateForm() {
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+                       
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            const emailError = document.getElementById('emailError');
+            const passwordError = document.getElementById('passwordError');
+            
+            emailError.textContent = '';
+            passwordError.textContent = '';
+          
+            if (!email.match(emailRegex)) {
+                emailError.textContent = 'Please enter a valid email address';
+                return false;
+            }
+
+            if (password.length < 6) {
+                passwordError.textContent = 'Password must be at least 6 characters';
+                return false;
+            }
+            
+            return true;
+        }
+    </script>
+        
+</body>
+</html>

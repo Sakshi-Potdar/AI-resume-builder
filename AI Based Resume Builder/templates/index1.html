@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI based Resume Builder</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='index1.css') }}">
+</head>
+<body>
+  <section class="main">
+    <header>
+      <a href="#"><img src="{{ url_for('static', filename='resume-logo-1.png') }}" class="logo"></a>
+      <div class="toggle"></div>
+      <ul class="navigation">
+        <li><a href="#how">How It Works?</a></li>
+        <li><a href="#">Templates</a></li>
+        <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+        <li><a href="{{ url_for('signin') }}">Log In</a></li>
+        </ul>
+    </header>
+    <div class="content">
+      <div class="text">
+        <h2>The Ultimate<br>Resume Builder</h2>
+        <p>Welcome to our Resume Builder website, where your career aspirations come to life! Craft the perfect resume effortlessly with our user-friendly tools and templates. Whether you're a seasoned professional or just starting your journey, we're here to help you showcase your skills and experience in the best light possible. Create a standout resume that opens doors to your dream job with ease and confidence. Your future career success begins here.</p>
+        <a href="{{ url_for('signup') }}" class="btn">Create Resume</a>
+      </div>
+      <div class="slider">
+        <div class="slides active">
+          <img src="{{ url_for('static', filename='2c4f1315ce904c623a7af1ef4ef81166.png') }}">
+        </div>
+        <div class="slides">
+          <img src="{{ url_for('static', filename='5a0d1004db021a0fb01f3cce4fb06d56.png') }}">
+        </div>
+        <div class="slides">
+          <img src="{{ url_for('static', filename='Beautiful-and-Designer-A4-Resume-CV-PSD-Template-Preview.jpg') }}">
+        </div>
+        <div class="slides">
+          <img src="{{ url_for('static', filename='GENNADIOS-Free-Creative-Resume-Template-Dark-Background.png') }}">
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <ul class="sci">
+        <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+      </ul>
+      <div class="prevNext">
+        <span class="prev"><ion-icon name="chevron-back-outline"></ion-icon></span>
+        <span class="next"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+      </div>
+    </div>
+  </section>
+  </div>
+  <h3 id="how">How It Works</h3>
+  <h2 id="stepline">Steps To Create A Professional-looking Resume</h2>
+  <table>
+    <td>
+      <h2 id="step">01</h2>
+      <br>
+      <h4>You are given a liberty to choose a template</h4>
+      <p>Choose from professionally designed templates! No matter from which field you are, our Resume Builder will automatically format them onto your favorite resume templates.</p>
+    </td>
+   <td>
+        <img src="{{ url_for('static', filename='step1.png') }}">
+    </td>
+    </table>
+    <table>
+      <td>
+        <img src="{{ url_for('static', filename='step2.png') }}">
+    </td>
+      <td>
+        <h2 id="step">02</h2>
+        <br>
+        <h4>Fill in your details using our simple form</h4>
+        <p>We guide you through the process of writing each section, step-by-step, down to the smallest part. Our resume builder does all of the hard work. Remember, your work experiences and education are unique. Our online Resume Builder features will help you create a resume that reflects your greatest strengths.</p>
+      </td>
+    </table>
+    <table>
+      <td>
+        <h2 id="step">03</h2>
+        <br>
+        <h4>Save and download your design on demand with one click</h4>
+        <p>Create, save, and download your resume to apply for any job position in any organization. Our resume generator will make sure the layout stays intact. You can download your resume in PDF any time you desire. Make and download your resume with no compromises.</p>
+      </td>
+     <td>
+          <img src="{{ url_for('static', filename='step3.png') }}">
+      </td>
+      </table>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  
+  <script>
+    //toggle 
+    const menutoggle = document.querySelector('.toggle');
+    const navigation = document.querySelector('.navigation');
+    menutoggle.onclick = function(){
+      menutoggle.classList.toggle('active')
+      navigation.classList.toggle('active')
+    }
+
+    //slider
+    const slides = document.querySelectorAll('.slides');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+
+    i = 0;
+    
+    function ActiveSlide(n){
+      for(slide of slides)
+      slide.classList.remove('active');
+      slides[n].classList.add('active');
+    }
+
+    // function for next btn
+    next.addEventListener('click', function(){
+      if(i == slides.length - 1){
+        i = 0;
+        ActiveSlide(i);
+      }
+      else 
+      {
+        i++;
+        ActiveSlide(i);
+      }
+    })
+
+     // function for prev btn
+     prev.addEventListener('click', function(){
+      if(i == 0){
+        i = slides.length - 1;
+        ActiveSlide(i);
+      }
+      else 
+      {
+        i--;
+        ActiveSlide(i);
+      }
+    })
+  </script>
+
+</body>
+</html>
